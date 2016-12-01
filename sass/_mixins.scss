@@ -1,0 +1,16 @@
+//mixins.scss
+@mixin col($width){
+    width:$width;
+    @content;
+}
+
+@mixin media($minWidth,$maxWidth){
+    @media all and (min-width: $minWidth) and (max-width: $maxWidth){
+        @content;
+    }
+}
+@mixin mediaMin($minWidth){
+    @media all and (min-width: $minWidth){
+        @content;
+    }
+}

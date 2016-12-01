@@ -1,1 +1,229 @@
-// main SASS file
+@import "variables", "mixins";
+
+*{
+    padding:0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    &:after, &:before{
+           -webkit-box-sizing: inherit;
+            box-sizing: inherit; 
+    }
+}
+html{
+    font-size: 16px;
+    font-family: $defaultFont;
+    line-height: 1.6;
+}
+h1, h2, h3, h4{
+    font-family: $headerFont;
+}
+ul{
+    list-style: none;
+}
+.clearfix:after{
+    display:table;
+    clear: both;
+    content: "";
+}
+.bg-header{
+    background-color: $w;
+    background-color: $lb;
+    color: $dg;
+    border-bottom:1rem solid $mb;
+    border-top:1rem solid $db;
+    position: relative;
+    &:before,&:after{
+        content:"";
+        position:absolute;
+        bottom:-1rem;
+        width:30%;
+        height:1rem;
+        background-color: $db;  
+    }
+    &:before{
+        left: 0; 
+    }
+    &:after{
+        right: 0;
+    }
+}
+
+.bg-focal{
+    background-color: $lbrown;
+    color: $dbrown;
+}
+.bg-content1{
+    background-color: $w;
+    color: $dg;
+}
+.bg-content2{
+    background-color: $lb;
+    color: $db;
+}
+.bg-footer{
+    background-color: $w;
+    color: $lg;
+}
+header{
+    width: 400px;
+    margin: 0 auto;
+    position: relative;
+    
+    h1{
+        width: 100%;
+        padding: 0 2rem;
+        color: $dbrown;
+        letter-spacing: 0.1rem;
+       i.fa-lg{
+            display:block;
+            width: 25%;
+            float:left;
+            font-size: 7rem;
+            line-height: 12.7936rem;
+            color: $lbrown;
+           ~ span{
+                float: right;
+                width: 75%;
+                font-size: 3.998rem;
+                padding-left: 1rem;
+                text-align: right;
+            }
+           
+        } 
+    }
+    
+    nav{
+        width: 100%;
+        padding:2rem 0;
+        clear: both;
+        ul{
+            @extend ul;
+            li{
+              width:100%;
+              float: none;
+                a{
+                    display:block;
+                    text-align: center;
+                    text-decoration: none;
+                    color: $dg;    
+                    font-size: 1.414rem;
+                    letter-spacing: 0.25rem;
+                    border:1px solid $lg; 
+                    border-bottom: none;
+                    padding:1.0rem 2rem;
+                    line-height: 1;
+                    background-color: $w;
+                    &:hover{
+                            font-weight: 700;
+                            color: $dbrown;
+                    }
+                    }   
+                }
+            }
+        }
+    }
+
+section{
+    &.focal{
+        width: 400px;
+        margin: 0 auto;        
+    }
+    &.content1{
+    padding: 2rem 0;
+    }
+    &.content2{
+    padding:2rem 0;    
+    }
+}
+
+.row{
+    clear: both;
+}
+.col-2{
+    @include col(50%);
+    float: left;
+    padding-bottom: 2rem;
+    border-left:1px solid #3a5E63;
+    margin-bottom: 2rem;
+}
+
+
+.focal{
+    h2{
+        font-size: 1.999rem;
+        line-height: 1.2;
+        padding: 2rem 2rem 1rem 2rem;
+    }
+    .author{
+        font-size: 1rem;
+        padding: 0.2rem 2rem 2rem; 
+    }
+}
+
+
+.content1{
+    h3{
+        font-size:1.999rem;
+        padding: 0.2rem 2rem 2rem;
+        i{
+          vertical-align:middle;
+          padding-right: 2rem;            
+        }
+    }
+    
+    p{
+    font-size: 1.414rem;
+    padding: 0.5rem 2rem 2rem;        
+    }
+    
+}
+
+.content2{
+    h3{
+    font-size: 1.999rem;
+    padding: 1rem 2rem 0.5rem;        
+    }
+    h4{
+    font-size: 1.999rem;
+    padding: 1rem 2rem 0rem;        
+    }
+    p{
+    font-size: 1.414rem;
+    padding: 0.5rem 2rem 1rem;        
+    }
+    li{
+    padding: 0.5rem 2rem;
+    font-size: 1.414rem;       
+    }
+}
+
+footer{
+    h4{
+    font-size: 1.414rem;
+    padding: 0.5rem 2rem;
+    color: $dbrown;
+        &[lang=de]{
+            display: block;
+        }
+        &[lang=en],
+        &[lang=ar],
+        &[lang=ru]{
+            display: none;
+        }
+        
+    }
+    p{
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    color: $dg;   
+    }
+    .col-2:first-child{
+        border-left: 0;
+    }
+    &.fa-circle{
+    color: $dg;        
+    }
+    padding: 2rem 0;
+}
+@import "queries";
